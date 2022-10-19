@@ -1,0 +1,111 @@
+﻿<Window x:Class="BurgerKing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BurgerKing"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical"
+                     VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left">
+                    <CheckBox x:Name="Cbcheeseburger"
+                              Height="20"
+                              Checked="Cbcheeseburger_Checked"
+                              />
+                    <TextBlock Text="Чизбургер"
+                               Margin="5 0 0 0 "/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left">
+                    <CheckBox x:Name="Cbgamburger"
+                              Height="20"
+                              Checked="Cbgamburger_Checked"
+                              />
+                    <TextBlock Text="Гамбургер"
+                               Margin="5 0 0 0 "/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left">
+                    <CheckBox x:Name="Cbcocacola"
+                              Height="20"
+                              Checked="Cbcocacola_Checked"
+                              />
+                    <TextBlock Text="Кока-кола"
+                               Margin="5 0 0 0 "/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left">
+                    <CheckBox x:Name="CbNagets"
+                              Height="20"
+                              Checked="CbNagets_Checked"/>
+                    <TextBlock Text="Нагетсы"
+                               Margin="5 0 0 0 "/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        Margin="20">
+                <TextBox x:Name="txbcheese"
+                         Width="40"
+                         Text="0"
+                         IsEnabled="{Binding ElementName=Cbcheeseburger, Path=IsChecked}"
+                         Height="15"
+                         Margin="0 0 0 5"/>
+                <TextBox x:Name="txbgam"
+                         Width="40"
+                         Text="0"
+                         IsEnabled="{Binding ElementName=Cbgamburger, Path=IsChecked}"
+                         Height="15"
+                         Margin="0 0 0 5"/>
+                <TextBox x:Name="txbcola"
+                         Width="40"
+                         Text="0"
+                         IsEnabled="{Binding ElementName=Cbcocacola, Path=IsChecked}"
+                         Height="15"
+                         Margin="0 0 0 5"/>
+                <TextBox x:Name="txbnag"
+                         Width="40"
+                         Text="0"
+                         IsEnabled="{Binding ElementName=CbNagets, Path=IsChecked}"
+                         Height="15"
+                         Margin="0 0 0 5"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Grid.Row="1">
+            <Button Grid.Row="1"
+                    x:Name="btnOrder"
+                    Width="60"
+                    Height="20"
+                    Content="Заказать"
+                    Click="btnOrder_Click"
+                    Margin="10"/>
+            <Button Grid.Row="1"
+                    x:Name="btnClear"
+                    Width="60"
+                    Height="20"
+                    Content="Очистить"
+                    Click="btnClear_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Vertical"
+                    HorizontalAlignment="Center">
+           
+            <ListBox Name="lstResult" Margin="10"
+                     Height="150"
+                     Width="250"/>
+        </StackPanel>
+    </Grid>
+</Window>
